@@ -10,7 +10,7 @@ trigger testing on Contact (before insert) {
     if (!accountIds.isEmpty()) {
         List<Account> accLists = [SELECT Id, Description FROM Account WHERE Id IN :accountIds];
         for (Account acc : accLists) {
-            acc.Description = 'Contact added on account which is done today successfully ' + DateTime.now().format();
+            acc.Description = 'Contact added on account which is done today and i am happy ' + DateTime.now().format();
         }
         update accLists;
     }
